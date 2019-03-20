@@ -1,0 +1,32 @@
+server.port: 8080
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  security:
+    oauth2:
+      client:
+        provider:
+          okta:
+            authorization-uri:  https://dev-784169.okta.com/oauth2/default/v1/authorize
+            token-uri: https://dev-784169.okta.com/oauth2/default/v1/token
+            user-info-uri: https://dev-784169.okta.com/oauth2/default/v1/userinfo
+            jwk-set-uri: https://dev-784169.okta.com/oauth2/default/v1/keys
+            redirect-uri: http://localhost:8080/oauth/authorize
+        registration:
+          okta:
+            client-id: 0oabgb19iKH6RjETl356
+            client-secret: G3lmvJqqx32P3Ada2Pwe0wXeAGNaSMpTzd6EByTE
+            redirect-uri: http://localhost:8080/oauth/authorize
+
+logging:
+  level:
+    root: DEBUG
+
+
+security:
+  oauth2:
+    client:
+      client-id: oktasecurity
+      client-secret: oktasecrate
+      scope: read,write
+      auto-approve-scopes: '.*'
